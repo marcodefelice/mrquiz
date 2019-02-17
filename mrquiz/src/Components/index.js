@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import QuestionBox from './QuestionBox';
 
-class Component extends Component {
+class Components extends Component {
   render() {
     return (
       <QuestionBox />
@@ -9,4 +9,4 @@ class Component extends Component {
   }
 }
 
-export default Component;
+export default Components;

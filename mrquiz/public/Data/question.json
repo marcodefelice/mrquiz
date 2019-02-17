@@ -1,0 +1,12 @@
+{
+  "id":1,
+  "question": "Come mi chiamo ?",
+  "answer": [
+    "a",
+    "b",
+    "c",
+    "d"
+  ],
+  "time":30000,
+  "avatar_url":"mario.png"
+}
