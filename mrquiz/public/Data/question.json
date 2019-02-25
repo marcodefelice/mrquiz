@@ -1,12 +1,28 @@
 {
-  "id":1,
-  "question": "Come mi chiamo ?",
-  "answer": [
-    "a",
-    "b",
-    "c",
-    "d"
-  ],
-  "time":30000,
-  "avatar_url":"mario.png"
+"1": {
+    "id":1,
+    "question": "Come mi chiamo ?",
+    "answer": {
+      "1":"a",
+      "2":"b",
+      "3":"c",
+      "4":"d"
+    },
+    "time":30000,
+    "avatar_url":"mario.png",
+    "correctAnswer":2
+  },
+  "2":{
+    "id":1,
+    "question": "Dove andiamo ?",
+    "answer": {
+      "1":"a",
+      "2":"b",
+      "3":"c",
+      "4":"d"
+    },
+    "time":30000,
+    "avatar_url":"mario.png",
+    "correctAnswer":2
+  }
 }

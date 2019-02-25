@@ -4,9 +4,13 @@ import QuestionBox from './QuestionBox';
 class Components extends Component {
   render() {
     return (
-      <QuestionBox />
+    <p>  Ciao Mondo, simamo in home</p>
     );
   }
 }
 
-export default Components;
+
+export { // without default
+  Components,
+  QuestionBox,
+}

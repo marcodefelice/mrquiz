@@ -9,12 +9,13 @@ export class  QuestionListData extends React.Component {
       var items = []
     }
 
-  loadJsonData(cb) {
-    const filePath = './Data/question.json'
+  loadJsonData(qid) {
+    const filePath = window.location.origin+'/Data/question.json'
     let promise = new Promise(function(resolve,reject) {
       axios.get(filePath)
      .then(res => {
-        const items = res.data;
+        const items = res.data[qid];
+        console.log(items)
         resolve({items})
     })
     .catch(function (error) {

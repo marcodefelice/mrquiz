@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {QuestionListData} from '../../Services/QuestionListData';
 import './style.scss';
 
+
 class QuestionBox extends Component {
       constructor(props) {
         super(props)
@@ -14,9 +15,10 @@ class QuestionBox extends Component {
     }
 
     componentDidMount() {
+      const qid = this.props.match.params.qid
       const questiondata = new QuestionListData()
       var self = this;
-        questiondata.loadJsonData().then(function(data){
+        questiondata.loadJsonData(qid).then(function(data){
               self.setState({
                 question: data.items.question,
                 timing: data.items.time,
@@ -26,15 +28,12 @@ class QuestionBox extends Component {
           })
   }
 
-  compileQuestion(q) {
+  compileAnswer(a) {
     var showData = []
-    console.log(q)
-    if (q != undefined) {
-        Object.keys(q).map(function(objectKey, index) {
-          var value = q[objectKey];
-          if(!Array.isArray(value)) {
-            showData[index] = <li>{value}</li>
-          }
+    if (a != undefined) {
+        Object.keys(a).map(function(objectKey, index) {
+          var value = a[objectKey];
+          showData[index] = <li>{value}</li>
       });
     }
     return showData
@@ -44,12 +43,11 @@ class QuestionBox extends Component {
     return (
       <div className="QuestionBox">
         <div className="question">
-      gino
+            <ul>{this.state.question}</ul>
         </div>
+        <div className="timing">{this.state.timing}</div>
         <div className="answer">
-        { this.state && this.state.question &&
-              <ul>{this.compileQuestion(this.state.question)}</ul>
-            }
+            <ul>{this.compileAnswer(this.state.answer)}</ul>
         </div>
       </div>
     );
