@@ -4,23 +4,25 @@ import axios from 'axios';
 
 
 export class  QuestionListData extends React.Component {
-    state = {
-      items: []
-      }
+    constructor() {
+      super()
+      var items = []
+    }
 
-  loadJsonData() {
-    console.log(998)
+  loadJsonData(cb) {
     const filePath = './Data/question.json'
-    axios.get(filePath)
+    let promise = new Promise(function(resolve,reject) {
+      axios.get(filePath)
      .then(res => {
         const items = res.data;
-        this.setState({items})
+        resolve({items})
     })
     .catch(function (error) {
     console.log("Calling json file at " +  filePath,error);
     });
+  });
 
-    return this.state
+  return promise
   }
 
 
