@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import {QuestionListData} from '../../Services/QuestionListData';
+import {CheckAnswer} from '../../Services/CheckAnswer';
 import './style.scss';
-
 
 class QuestionBox extends Component {
       constructor(props) {
         super(props)
         this.state = {
             question: [],
-            timing: 0,
-            id: 0,
+            timing: null,
+            id: null,
             answer: [],
+            correctAnswer: null
         };
     }
 
@@ -23,17 +24,31 @@ class QuestionBox extends Component {
                 question: data.items.question,
                 timing: data.items.time,
                 id: data.items.id,
-                answer: data.items.answer
+                answer: data.items.answer,
+                correctAnswer: data.items.correctAnswer
               });
           })
   }
 
-  compileAnswer(a) {
+  onItemClick(i,a) {
+    console.log("checkAnswer",i,a)
+    const check = new CheckAnswer(this.state.id,i);
+    const res = check.verify(a)
+    if(res) {
+      console.log("OK")
+    }
+  }
+
+  compileAnswer(a,self) {
     var showData = []
     if (a != undefined) {
-        Object.keys(a).map(function(objectKey, index) {
+        Object.keys(a).map(function(objectKey, i) {
           var value = a[objectKey];
-          showData[index] = <li>{value}</li>
+          var href = "checkQuestion/" + i
+          showData[i] = <li><button type="button" onClick={
+            (e) => {self.onItemClick(objectKey,self.state.correctAnswer)
+            }
+          }>{value}</button></li>
       });
     }
     return showData
@@ -47,7 +62,7 @@ class QuestionBox extends Component {
         </div>
         <div className="timing">{this.state.timing}</div>
         <div className="answer">
-            <ul>{this.compileAnswer(this.state.answer)}</ul>
+            <ul> {this.compileAnswer(this.state.answer,this)}</ul>
         </div>
       </div>
     );
