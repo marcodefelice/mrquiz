@@ -7,8 +7,9 @@ export class SaveData {
   install(name) {
     db.serialize(function() {
       db.run("CREATE TABLE "+name+" (info TEXT)");
+    })
+    db.close();
   }
-  db.close();
 }
 
 /*

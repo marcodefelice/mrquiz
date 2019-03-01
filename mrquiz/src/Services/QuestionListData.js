@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import axios from 'axios';
 
 
 
-export class  QuestionListData extends React.Component {
+export class  QuestionListData extends Component {
     constructor() {
       super()
       var items = []

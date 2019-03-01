@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
 import {QuestionListData} from './QuestionListData';
-import {SaveData} from './SaveData';
+//import {SaveData} from './SaveData';
 
 export class CheckAnswer {
   constructor(qid,answerId) {
