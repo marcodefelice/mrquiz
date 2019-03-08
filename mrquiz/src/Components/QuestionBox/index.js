@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {QuestionListData} from '../../Services/QuestionListData';
 import {CheckAnswer} from '../../Services/CheckAnswer';
+import {SaveData} from '../../Services/SaveData';
+
 import './style.scss';
 
 class QuestionBox extends Component {
@@ -18,6 +20,8 @@ class QuestionBox extends Component {
     componentDidMount() {
       const qid = this.props.match.params.qid
       const questiondata = new QuestionListData()
+      const SID = localStorage.getItem("SESSIONID");
+
       var self = this;
         questiondata.loadJsonData(qid).then(function(data){
               self.setState({
@@ -28,6 +32,14 @@ class QuestionBox extends Component {
                 correctAnswer: data.items.correctAnswer
               });
           })
+      //on component mount -> install table
+      console.log(SID)
+      if(SID === null) {
+        const SAVE = new SaveData()
+        SAVE.install()
+      }
+      
+
   }
 
   onItemClick(i,a) {

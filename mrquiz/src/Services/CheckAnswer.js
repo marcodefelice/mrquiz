@@ -1,5 +1,5 @@
 import {QuestionListData} from './QuestionListData';
-//import {SaveData} from './SaveData';
+import {SaveData} from './SaveData';
 
 export class CheckAnswer {
   constructor(qid,answerId) {
@@ -11,11 +11,14 @@ export class CheckAnswer {
   }
 
   verify(correctAnswer) {
-    if(correctAnswer == this.dataToCheck.answerId) {
-      console.log("answer correct")
+    const SAVE = new SaveData()
+
+    let aid = this.dataToCheck.answerId
+    if(correctAnswer == aid) {
+      SAVE.putdata(aid,1)
       return true
     }
-    console.log("answer wrong")
+    SAVE.putdata(aid,0)
     return false;
   }
 

@@ -1,8 +1,6 @@
 import { Component } from 'react';
 import axios from 'axios';
 
-
-
 export class  QuestionListData extends Component {
     constructor() {
       super()
