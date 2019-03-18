@@ -3,11 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" type="text/css" href="/Css/main_style.css" media="all"/>
+    <link href="https://fonts.googleapis.com/css?family=Rouge+Script|Open+Sans:400,600,700" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Normalization -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -24,18 +32,101 @@
     -->
     <title>React App</title>
   </head>
-  <body>
+  <body data-spy="scroll" data-target=".navbar" data-offset="56">
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <!-- Navigation Menu -->
+    <!-- Slider -->
+    <slider id="slider">
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+        <div class="main-slider">
+        
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <!-- cruasel indicator-->
+                <div id="carousel">
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="slider-image" src="/images/slider2.jpg" alt="First slide">
+                        <div class="carousel-caption">
+                            <div class="underlay"></div>
+                            <div class="content">
+                                <img class="slider-content" src="/images/slider_content.png" />
+    
+                                <div id="root"></div>
+    
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+
+    </slider>
+
+    <!-- About Us -->
+    <div id="about"></div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row justify-content-center footer-menu">
+                <div class="col col-sm-12">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item wow fadeIn" data-wow-delay="0.7s">
+                            <a class="smoothscroll" href="#home">home</a>
+                        </li>
+                        <li class="list-inline-item wow fadeIn" data-wow-delay="0.6s">
+                            <a class="smoothscroll" href="#about">about us</a>
+                        </li>
+                        <li class="list-inline-item wow fadeIn" data-wow-delay="0.5s">
+                            <a class="smoothscroll" href="#history">our history</a>
+                        </li>
+                        <li class="list-inline-item wow fadeIn" data-wow-delay="0.4s">
+                            <a class="smoothscroll" href="#gallery">photo gellary</a>
+                        </li>
+                        <li class="list-inline-item wow fadeIn" data-wow-delay="0.3s">
+                            <a class="smoothscroll" href="#people">peoples</a>
+                        </li>
+                        <li class="list-inline-item wow fadeIn" data-wow-delay="0.2s">
+                            <a class="smoothscroll" href="#friend">friends wishes</a>
+                        </li>
+                        <li class="list-inline-item wow fadeIn" data-wow-delay="0.1s">
+                            <a class="smoothscroll" href="#blog">blog</a>
+                        </li>
+                        <li class="list-inline-item wow fadeIn">
+                            <a class="smoothscroll" href="#contact">contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col col-sm-12">
+                    <div class="social">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item wow fadeIn"><i class="fa fa-facebook fa-lg icon" aria-hidden="true"></i></li>
+                            <li class="list-inline-item wow fadeIn" data-wow-delay="0.1s"><i class="fa fa-twitter fa-lg icon" aria-hidden="true"></i></li>
+                            <li class="list-inline-item wow fadeIn" data-wow-delay="0.2s"><i class="fa fa-linkedin fa-lg icon" aria-hidden="true"></i></li>
+                            <li class="list-inline-item wow fadeIn" data-wow-delay="0.3s"><i class="fa fa-behance fa-lg icon" aria-hidden="true"></i></li>
+                            <li class="list-inline-item wow fadeIn" data-wow-delay="0.4s"><i class="fa fa-dribbble fa-lg icon" aria-hidden="true"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright-section">
+                <p class="text-center">&copy; 2016 all rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="/js/jquery.mixitup.min.js"></script>
+    <script src="/js/script.js"></script>
   </body>
 </html>

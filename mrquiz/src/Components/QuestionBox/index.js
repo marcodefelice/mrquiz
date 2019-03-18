@@ -20,7 +20,6 @@ class QuestionBox extends Component {
     componentDidMount() {
       const qid = this.props.match.params.qid
       const questiondata = new QuestionListData()
-      const SID = localStorage.getItem("SESSIONID");
 
       var self = this;
         questiondata.loadJsonData(qid).then(function(data){
@@ -33,13 +32,6 @@ class QuestionBox extends Component {
               });
           })
       //on component mount -> install table
-      console.log(SID)
-      if(SID === null) {
-        const SAVE = new SaveData()
-        SAVE.install()
-      }
-      
-
   }
 
   onItemClick(i,a) {
