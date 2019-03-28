@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {QuestionListData} from '../../Services/QuestionListData';
 import {CheckAnswer} from '../../Services/CheckAnswer';
-import {SaveData} from '../../Services/SaveData';
+import { Redirect } from 'react-router-dom'
 
 import './style.scss';
 
@@ -13,13 +13,19 @@ class QuestionBox extends Component {
             timing: null,
             id: null,
             answer: [],
-            correctAnswer: null
+            correctAnswer: null,
+            next: false
         };
     }
 
-    componentDidMount() {
-      const qid = this.props.match.params.qid
-      const questiondata = new QuestionListData()
+  componentDidMount() {
+    this.loadContent(this.props.match.params.qid)
+  }
+
+  loadContent(id) {
+      const qid = id
+      
+    const questiondata = new QuestionListData()
 
       var self = this;
         questiondata.loadJsonData(qid).then(function(data){
@@ -31,7 +37,6 @@ class QuestionBox extends Component {
                 correctAnswer: data.items.correctAnswer
               });
           })
-      //on component mount -> install table
   }
 
   onItemClick(i,a) {
@@ -39,8 +44,10 @@ class QuestionBox extends Component {
     const check = new CheckAnswer(this.state.id,i);
     const res = check.verify(a)
     if(res) {
+      //todo: insert into table
       console.log("OK")
     }
+    this.setState({next:true})
   }
 
   compileAnswer(a,self) {
@@ -59,6 +66,14 @@ class QuestionBox extends Component {
   }
 
   render() {
+
+    if(this.state.next === true) {
+      let idQuestion = this.state.id + 1
+      let address = "/QuestionBox/"+idQuestion
+      this.loadContent(idQuestion)
+      this.setState({next:false})
+    }
+    
     return (
       <div className="QuestionBox">
         <div className="question">

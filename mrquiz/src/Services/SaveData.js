@@ -88,7 +88,7 @@ export class SaveData {
 
   install(tbName) {
     let SESSIONID = getJSessionId()
-    if(tbName !== '') {
+    if(tbName !== null) {
       SESSIONID = tbName
     }
 
@@ -148,8 +148,8 @@ export class SaveData {
        "quid": {
          N: String(aid)
         },
-       "sucess": {
-         N: String(scf)
+       "data": {
+         S: String(scf)
         }
       },
       ReturnConsumedCapacity: "TOTAL",

@@ -7,7 +7,6 @@ import { Redirect } from 'react-router-dom'
 
 const SAVE = new SaveData()
 
-
 class InstallApp extends Component {
 
   constructor(props) {

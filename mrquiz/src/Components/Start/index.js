@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import {SaveData} from '../../Services/SaveData';
+
 
 import "./style.scss";
+const SAVE = new SaveData()
 
 class Start extends Component {
 
@@ -15,6 +19,7 @@ class Start extends Component {
   }
 
   handleClick() {
+    SAVE.install(null)
     this.setState(state => ({
       start: true
     }));
@@ -26,11 +31,7 @@ class Start extends Component {
     const GAME_NAME = localStorage.getItem("GAMENAME")
 
     if(this.state.start === true) {
-      return (
-        <div>
-          WOOOOOOOOOOOOW
-        </div>
-      )
+      return <Redirect to='/QuestionBox/1' />
     }
 
     return (
